@@ -1,27 +1,30 @@
 package org.angularpost.controllers;
 
 import org.angularpost.model.VideoInfo;
+import org.angularpost.model.VideoInfoRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
+
 @RestController
 class VideosController {
-    VideoInfo[] videos = {
-            new VideoInfo(123, "https://www.youtube.com/embed/v4HkkjXmEMM?si=-EhqAthFjE4-AAhF"),
-            new VideoInfo(123, "https://www.youtube.com/embed/v4HkkjXmEMM?si=-EhqAthFjE4-AAhF"),
-            new VideoInfo(123, "https://www.youtube.com/embed/v4HkkjXmEMM?si=-EhqAthFjE4-AAhF"),
-            new VideoInfo(123, "https://www.youtube.com/embed/v4HkkjXmEMM?si=-EhqAthFjE4-AAhF"),
-            new VideoInfo(123, "https://www.youtube.com/embed/v4HkkjXmEMM?si=-EhqAthFjE4-AAhF"),
-            new VideoInfo(123, "https://www.youtube.com/embed/v4HkkjXmEMM?si=-EhqAthFjE4-AAhF"),
-            new VideoInfo(123, "https://www.youtube.com/embed/v4HkkjXmEMM?si=-EhqAthFjE4-AAhF"),
-            new VideoInfo(123, "https://www.youtube.com/embed/v4HkkjXmEMM?si=-EhqAthFjE4-AAhF"),
-            new VideoInfo(123, "https://www.youtube.com/embed/v4HkkjXmEMM?si=-EhqAthFjE4-AAhF"),
-            new VideoInfo(123, "https://www.youtube.com/embed/v4HkkjXmEMM?si=-EhqAthFjE4-AAhF"),
-            new VideoInfo(123, "https://www.youtube.com/embed/v4HkkjXmEMM?si=-EhqAthFjE4-AAhF")
+    VideoInfo[] videos = new VideoInfo[]{
+            new VideoInfo(123L, "https://www.youtube.com/embed/v4HkkjXmEMM?si=-EhqAthFjE4-AAhF"),
+            new VideoInfo(123L, "https://www.youtube.com/embed/v4HkkjXmEMM?si=-EhqAthFjE4-AAhF"),
+            new VideoInfo(123L, "https://www.youtube.com/embed/v4HkkjXmEMM?si=-EhqAthFjE4-AAhF")
     };
 
+    @Autowired
+    private VideoInfoRepository videoInfoRepository;
+
     @GetMapping("/videos")
-    public VideoInfo[] getVideos() {
-        return videos;
+    public Iterable<VideoInfo> getVideos() {
+        // Save videos to the database
+        videoInfoRepository.saveAll(List.of(videos));
+
+        // Retrieve videos from the database
+        return videoInfoRepository.findAll();
     }
 }

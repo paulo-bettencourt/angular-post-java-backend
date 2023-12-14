@@ -1,20 +1,31 @@
 package org.angularpost.model;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 
+@Entity
 public class VideoInfo {
 
-    private int id;
+    @Id
+    @GeneratedValue(strategy=GenerationType.AUTO)
+    private Long id;
     private String link;
 
-    public VideoInfo(int id, String link) {
+    public VideoInfo(Long id, String link) {
         this.id = id;
         this.link = link;
     }
 
-    public int getId() {
+    public VideoInfo() {
+
+    }
+
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
