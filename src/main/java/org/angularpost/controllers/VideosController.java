@@ -11,9 +11,9 @@ import java.util.List;
 @RestController
 class VideosController {
     VideoInfo[] videos = new VideoInfo[]{
-            new VideoInfo(123L, "https://www.youtube.com/embed/v4HkkjXmEMM?si=-EhqAthFjE4-AAhF"),
-            new VideoInfo(123L, "https://www.youtube.com/embed/v4HkkjXmEMM?si=-EhqAthFjE4-AAhF"),
-            new VideoInfo(123L, "https://www.youtube.com/embed/v4HkkjXmEMM?si=-EhqAthFjE4-AAhF")
+            new VideoInfo(123L, "https://www.youtube.com/embed/hsUxJjY-PRg"),
+            new VideoInfo(123L, "https://www.youtube.com/embed/hsUxJjY-PRg"),
+            new VideoInfo(123L, "https://www.youtube.com/embed/hsUxJjY-PRg")
     };
 
     @Autowired
