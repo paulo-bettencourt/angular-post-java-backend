@@ -1,8 +1,5 @@
 package org.angularpost.model;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 @Entity
 public class VideoInfo {
@@ -10,15 +7,18 @@ public class VideoInfo {
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO)
     private Long id;
+    private String title;
+    @Column(columnDefinition = "TEXT")
+    private String description;
     private String link;
 
-    public VideoInfo(Long id, String link) {
+    public VideoInfo() {}
+
+    public VideoInfo(Long id, String title, String description, String link) {
         this.id = id;
+        this.title = title;
         this.link = link;
-    }
-
-    public VideoInfo() {
-
+        this.description= description;
     }
 
     public Long getId() {
@@ -27,6 +27,22 @@ public class VideoInfo {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public String getLink() {

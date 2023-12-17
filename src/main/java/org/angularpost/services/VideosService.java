@@ -1,7 +1,7 @@
 package org.angularpost.services;
 
 import org.angularpost.model.VideoInfo;
-import org.angularpost.model.VideoInfoRepository;
+import org.angularpost.repository.VideoInfoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
