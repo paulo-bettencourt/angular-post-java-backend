@@ -2,7 +2,7 @@ package org.angularpost.model;
 import jakarta.persistence.*;
 
 @Entity
-public class VideoInfo {
+public class PostsInfo {
 
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO)
@@ -12,9 +12,9 @@ public class VideoInfo {
     private String description;
     private String link;
 
-    public VideoInfo() {}
+    public PostsInfo() {}
 
-    public VideoInfo(Long id, String title, String description, String link) {
+    public PostsInfo(Long id, String title, String description, String link) {
         this.id = id;
         this.title = title;
         this.link = link;
