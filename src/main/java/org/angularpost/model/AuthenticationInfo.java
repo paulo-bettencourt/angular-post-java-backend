@@ -6,19 +6,21 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
 @Entity
-public class LoginInfo {
-
+public class AuthenticationInfo {
+    
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String username;
     private String password;
 
-    public LoginInfo(Long id, String username, String password) {
+    public AuthenticationInfo(Long id, String username, String password) {
         this.id = id;
         this.username = username;
         this.password = password;
     }
+
+    AuthenticationInfo() {}
 
     public Long getId() {
         return id;
