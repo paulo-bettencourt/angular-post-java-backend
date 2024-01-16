@@ -1,4 +1,8 @@
 FROM eclipse-temurin:17-jdk-alpine
+<<<<<<< HEAD
 MAINTAINER baeldung.com
+=======
+VOLUME /tmp
+>>>>>>> 3c9bc7a9637ae2e15932ae2b4c89aa992589ed0a
 COPY target/*.jar app.jar
 ENTRYPOINT ["java","-jar","/app.jar"]
