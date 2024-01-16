@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
+@CrossOrigin(origins = "*") // Replace with the allowed origin
+@RequestMapping("/api")
 class PostsController {
     PostsInfo[] videos = new PostsInfo[]{
             new PostsInfo(123L, "New template syntax flow", "Angular's new template flow syntax enhances development by introducing streamlined constructs. With features like conditional expressions, developers can elegantly handle dynamic content rendering. The introduction of the nullish coalescing operator simplifies default values assignment. Template expressions have evolved, enabling developers to write concise and expressive code. These enhancements contribute to a more efficient and readable Angular codebase, empowering developers to create dynamic and responsive applications with greater ease and clarity.", "https://www.youtube.com/embed/hsUxJjY-PRg"),
